@@ -60,7 +60,7 @@ class cohortmembers extends \core\task\scheduled_task {
          * created since then - on smaller sites could just allow all users to be processed
          * and accept any timing hit.
          */
-        $allusers = $DB->get_records_select('user', "timecreated < 1");
+        $allusers = $DB->get_records_select('user', "timecreated < 1 AND deleted = 0");
 
         /* MANAGED WHOLE SITE COHORTS.
          * =========================== */
